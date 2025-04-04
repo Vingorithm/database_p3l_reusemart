@@ -1,0 +1,135 @@
+Base URL:
+http://localhost:3000/api
+
+1. AlamatPembeli
+POST http://localhost:3000/api/alamat-pembeli
+GET http://localhost:3000/api/alamat-pembeli
+GET http://localhost:3000/api/alamat-pembeli/<id_alamat>
+PUT http://localhost:3000/api/alamat-pembeli/<id_alamat>
+DELETE http://localhost:3000/api/alamat-pembeli/<id_alamat>
+
+2. Akun
+POST http://localhost:3000/api/akun
+GET http://localhost:3000/api/akun
+GET http://localhost:3000/api/akun/<id_akun>
+PUT http://localhost:3000/api/akun/<id_akun>
+DELETE http://localhost:3000/api/akun/<id_akun>
+
+3. Pembeli
+POST http://localhost:3000/api/pembeli
+GET http://localhost:3000/api/pembeli
+GET http://localhost:3000/api/pembeli/<id_pembeli>
+PUT http://localhost:3000/api/pembeli/<id_pembeli>
+DELETE http://localhost:3000/api/pembeli/<id_pembeli>
+
+4. OrganisasiAmal
+POST http://localhost:3000/api/organisasi-amal
+GET http://localhost:3000/api/organisasi-amal
+GET http://localhost:3000/api/organisasi-amal/<id_organisasi>
+PUT http://localhost:3000/api/organisasi-amal/<id_organisasi>
+DELETE http://localhost:3000/api/organisasi-amal/<id_organisasi>
+
+5. Pegawai
+POST http://localhost:3000/api/pegawai
+GET http://localhost:3000/api/pegawai
+GET http://localhost:3000/api/pegawai/<id_pegawai>
+PUT http://localhost:3000/api/pegawai/<id_pegawai>
+DELETE http://localhost:3000/api/pegawai/<id_pegawai>
+
+6. Penitip
+POST http://localhost:3000/api/penitip
+GET http://localhost:3000/api/penitip
+GET http://localhost:3000/api/penitip/<id_penitip>
+PUT http://localhost:3000/api/penitip/<id_penitip>
+DELETE http://localhost:3000/api/penitip/<id_penitip>
+
+7. Barang
+POST http://localhost:3000/api/barang
+GET http://localhost:3000/api/barang
+GET http://localhost:3000/api/barang/<id_barang>
+PUT http://localhost:3000/api/barang/<id_barang>
+DELETE http://localhost:3000/api/barang/<id_barang>
+
+8. Pembelian
+POST http://localhost:3000/api/pembelian
+GET http://localhost:3000/api/pembelian
+GET http://localhost:3000/api/pembelian/<id_pembelian>
+PUT http://localhost:3000/api/pembelian/<id_pembelian>
+DELETE http://localhost:3000/api/pembelian/<id_pembelian>
+
+9. Pengiriman
+POST http://localhost:3000/api/pengiriman
+GET http://localhost:3000/api/pengiriman
+GET http://localhost:3000/api/pengiriman/<id_pengiriman>
+PUT http://localhost:3000/api/pengiriman/<id_pengiriman>
+DELETE http://localhost:3000/api/pengiriman/<id_pengiriman>
+
+10. Transaksi
+POST http://localhost:3000/api/transaksi
+GET http://localhost:3000/api/transaksi
+GET http://localhost:3000/api/transaksi/<id_transaksi>
+PUT http://localhost:3000/api/transaksi/<id_transaksi>
+DELETE http://localhost:3000/api/transaksi/<id_transaksi>
+
+11. ReviewProduk
+POST http://localhost:3000/api/review-produk
+GET http://localhost:3000/api/review-produk
+GET http://localhost:3000/api/review-produk/<id_review>
+PUT http://localhost:3000/api/review-produk/<id_review>
+DELETE http://localhost:3000/api/review-produk/<id_review>
+
+12. DiskusiProduk
+POST http://localhost:3000/api/diskusi-produk
+GET http://localhost:3000/api/diskusi-produk
+GET http://localhost:3000/api/diskusi-produk/<id_diskusi_produk>
+PUT http://localhost:3000/api/diskusi-produk/<id_diskusi_produk>
+DELETE http://localhost:3000/api/diskusi-produk/<id_diskusi_produk>
+
+13. Keranjang
+POST http://localhost:3000/api/keranjang
+GET http://localhost:3000/api/keranjang
+GET http://localhost:3000/api/keranjang/<id_keranjang>
+PUT http://localhost:3000/api/keranjang/<id_keranjang>
+DELETE http://localhost:3000/api/keranjang/<id_keranjang>
+
+14. RequestDonasi
+POST http://localhost:3000/api/request-donasi
+GET http://localhost:3000/api/request-donasi
+GET http://localhost:3000/api/request-donasi/<id_request_donasi>
+PUT http://localhost:3000/api/request-donasi/<id_request_donasi>
+DELETE http://localhost:3000/api/request-donasi/<id_request_donasi>
+
+15. Merchandise
+POST http://localhost:3000/api/merchandise
+GET http://localhost:3000/api/merchandise
+GET http://localhost:3000/api/merchandise/<id_merchandise>
+PUT http://localhost:3000/api/merchandise/<id_merchandise>
+DELETE http://localhost:3000/api/merchandise/<id_merchandise>
+
+16. ClaimMerchandise
+POST http://localhost:3000/api/claim-merchandise
+GET http://localhost:3000/api/claim-merchandise
+GET http://localhost:3000/api/claim-merchandise/<id_claim_merchandise>
+PUT http://localhost:3000/api/claim-merchandise/<id_claim_merchandise>
+DELETE http://localhost:3000/api/claim-merchandise/<id_claim_merchandise>
+
+17. DonasiBarang
+POST http://localhost:3000/api/donasi-barang
+GET http://localhost:3000/api/donasi-barang
+GET http://localhost:3000/api/donasi-barang/<id_donasi_barang>
+PUT http://localhost:3000/api/donasi-barang/<id_donasi_barang>
+DELETE http://localhost:3000/api/donasi-barang/<id_donasi_barang>
+
+18. Penitipan
+POST http://localhost:3000/api/penitipan
+GET http://localhost:3000/api/penitipan
+GET http://localhost:3000/api/penitipan/<id_penitipan>
+PUT http://localhost:3000/api/penitipan/<id_penitipan>
+DELETE http://localhost:3000/api/penitipan/<id_penitipan>
+
+19. BonusTopSeller
+POST http://localhost:3000/api/bonus-top-seller
+GET http://localhost:3000/api/bonus-top-seller
+GET http://localhost:3000/api/bonus-top-seller/<id_bonus_top_seller>
+PUT http://localhost:3000/api/bonus-top-seller/<id_bonus_top_seller>
+DELETE http://localhost:3000/api/bonus-top-seller/<id_bonus_top_seller>

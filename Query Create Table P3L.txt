@@ -1,0 +1,226 @@
+-- Tabel AlamatPembeli
+CREATE TABLE AlamatPembeli (
+    id_alamat VARCHAR(50) PRIMARY KEY NOT NULL,
+    nama_alamat VARCHAR(100) NOT NULL,
+    alamat_lengkap VARCHAR(500) NOT NULL,
+    is_main_address BIT NOT NULL
+);
+
+-- Tabel Akun
+CREATE TABLE Akun (
+    id_akun VARCHAR(50) PRIMARY KEY NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE, -- Email should be unique
+    password VARCHAR(60) NOT NULL,
+    role VARCHAR(20) NOT NULL
+);
+
+-- Tabel Pembeli
+CREATE TABLE Pembeli (
+    id_pembeli VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_akun VARCHAR(50) NOT NULL UNIQUE, -- One-to-one with Akun
+    nama VARCHAR(100) NOT NULL,
+    total_poin INT NOT NULL DEFAULT 0,
+    tanggal_registrasi DATETIME NOT NULL,
+    FOREIGN KEY (id_akun) REFERENCES Akun(id_akun) ON DELETE CASCADE
+);
+
+-- Tabel OrganisasiAmal
+CREATE TABLE OrganisasiAmal (
+    id_organisasi VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_akun VARCHAR(50) NOT NULL UNIQUE, -- One-to-one with Akun
+    nama_organisasi VARCHAR(100) NOT NULL,
+    alamat VARCHAR(500) NOT NULL,
+    tanggal_registrasi DATETIME NOT NULL,
+    FOREIGN KEY (id_akun) REFERENCES Akun(id_akun) ON DELETE CASCADE
+);
+
+-- Tabel Pegawai
+CREATE TABLE Pegawai (
+    id_pegawai VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_akun VARCHAR(50) NOT NULL UNIQUE, -- One-to-one with Akun
+    nama_pegawai VARCHAR(100) NOT NULL,
+    tanggal_lahir DATETIME NOT NULL,
+    FOREIGN KEY (id_akun) REFERENCES Akun(id_akun) ON DELETE CASCADE
+);
+
+-- Tabel Penitip
+CREATE TABLE Penitip (
+    id_penitip VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_akun VARCHAR(50) NOT NULL UNIQUE, -- One-to-one with Akun
+    nama_penitip VARCHAR(100) NOT NULL,
+    foto_ktp VARCHAR(255) NOT NULL,
+    nomor_ktp VARCHAR(16) NOT NULL UNIQUE, -- KTP number should be unique
+    keuntungan DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    rating INT NOT NULL DEFAULT 0,
+    badge BIT NOT NULL DEFAULT 0,
+    total_poin INT NOT NULL DEFAULT 0,
+    tanggal_registrasi DATETIME NOT NULL,
+    FOREIGN KEY (id_akun) REFERENCES Akun(id_akun) ON DELETE CASCADE
+);
+
+-- Tabel Barang
+CREATE TABLE Barang (
+    id_barang VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_penitip VARCHAR(50) NOT NULL, -- Mandatory per PDM
+    id_hunter VARCHAR(50), -- Optional
+    id_pegawai_gudang VARCHAR(50) NOT NULL, -- Mandatory per PDM
+    nama VARCHAR(100) NOT NULL,
+    deskripsi VARCHAR(1000) NOT NULL,
+    gambar VARCHAR(255) NOT NULL,
+    harga DECIMAL(15,2) NOT NULL,
+    garansi_berlaku BIT NOT NULL DEFAULT 0,
+    tanggal_garansi DATETIME,
+    berat FLOAT NOT NULL,
+    status_qc VARCHAR(20) NOT NULL,
+    kategori_barang VARCHAR(50) NOT NULL,
+    FOREIGN KEY (id_penitip) REFERENCES Penitip(id_penitip) ON DELETE RESTRICT,
+    FOREIGN KEY (id_hunter) REFERENCES Pegawai(id_pegawai) ON DELETE SET NULL,
+    FOREIGN KEY (id_pegawai_gudang) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT
+);
+
+-- Tabel Pembelian
+CREATE TABLE Pembelian (
+    id_pembelian VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_barang VARCHAR(50) NOT NULL,
+    id_customer_service VARCHAR(50) NOT NULL,
+    id_pembeli VARCHAR(50) NOT NULL,
+    id_alamat VARCHAR(50) NOT NULL,
+    bukti_transfer VARCHAR(255) NOT NULL,
+    tanggal_pembelian DATETIME NOT NULL,
+    tanggal_pelunasan DATETIME,
+    total_harga DECIMAL(15,2) NOT NULL,
+    ongkir DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    potongan_poin INT NOT NULL DEFAULT 0,
+    total_bayar DECIMAL(15,2) NOT NULL,
+    poin_diperoleh INT NOT NULL DEFAULT 0,
+    status_pembelian VARCHAR(20) NOT NULL,
+    FOREIGN KEY (id_barang) REFERENCES Barang(id_barang) ON DELETE RESTRICT,
+    FOREIGN KEY (id_customer_service) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT,
+    FOREIGN KEY (id_pembeli) REFERENCES Pembeli(id_pembeli) ON DELETE RESTRICT,
+    FOREIGN KEY (id_alamat) REFERENCES AlamatPembeli(id_alamat) ON DELETE RESTRICT
+);
+
+-- Tabel Pengiriman
+CREATE TABLE Pengiriman (
+    id_pengiriman VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_pembelian VARCHAR(50) NOT NULL,
+    id_pengkonfirmasi VARCHAR(50) NOT NULL,
+    tanggal_mulai DATETIME NOT NULL,
+    tanggal_berakhir DATETIME,
+    status_pengiriman VARCHAR(20) NOT NULL,
+    jenis_pengiriman VARCHAR(50) NOT NULL,
+    FOREIGN KEY (id_pembelian) REFERENCES Pembelian(id_pembelian) ON DELETE CASCADE,
+    FOREIGN KEY (id_pengkonfirmasi) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT
+);
+
+-- Tabel Transaksi
+CREATE TABLE Transaksi (
+    id_transaksi VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_pengiriman VARCHAR(50) NOT NULL,
+    komisi_reusemart DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    komisi_hunter DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    pendapatan DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    bonus_cepat DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    FOREIGN KEY (id_pengiriman) REFERENCES Pengiriman(id_pengiriman) ON DELETE CASCADE
+);
+
+-- Tabel ReviewProduk
+CREATE TABLE ReviewProduk (
+    id_review VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_transaksi VARCHAR(50) NOT NULL,
+    rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5), -- Assuming a rating scale
+    tanggal_review DATETIME NOT NULL,
+    FOREIGN KEY (id_transaksi) REFERENCES Transaksi(id_transaksi) ON DELETE CASCADE
+);
+
+-- Tabel DiskusiProduk
+CREATE TABLE DiskusiProduk (
+    id_diskusi_produk VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_barang VARCHAR(50) NOT NULL,
+    id_customer_service VARCHAR(50) NOT NULL,
+    id_pembeli VARCHAR(50) NOT NULL,
+    pertanyaan VARCHAR(500) NOT NULL,
+    jawaban VARCHAR(500),
+    tanggal_pertanyaan DATETIME NOT NULL,
+    tanggal_jawaban DATETIME,
+    FOREIGN KEY (id_barang) REFERENCES Barang(id_barang) ON DELETE RESTRICT,
+    FOREIGN KEY (id_customer_service) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT,
+    FOREIGN KEY (id_pembeli) REFERENCES Pembeli(id_pembeli) ON DELETE RESTRICT
+);
+
+-- Tabel Keranjang
+CREATE TABLE Keranjang (
+    id_keranjang VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_barang VARCHAR(50) NOT NULL,
+    id_pembeli VARCHAR(50) NOT NULL,
+    FOREIGN KEY (id_barang) REFERENCES Barang(id_barang) ON DELETE RESTRICT,
+    FOREIGN KEY (id_pembeli) REFERENCES Pembeli(id_pembeli) ON DELETE RESTRICT,
+    UNIQUE (id_barang, id_pembeli)
+);
+
+-- Tabel RequestDonasi
+CREATE TABLE RequestDonasi (
+    id_request_donasi VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_organisasi VARCHAR(50) NOT NULL,
+    deskripsi_request VARCHAR(1000) NOT NULL,
+    tanggal_request DATETIME NOT NULL,
+    status_request VARCHAR(20) NOT NULL,
+    FOREIGN KEY (id_organisasi) REFERENCES OrganisasiAmal(id_organisasi) ON DELETE RESTRICT
+);
+
+-- Tabel Merchandise
+CREATE TABLE Merchandise (
+    id_merchandise VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_admin VARCHAR(50) NOT NULL,
+    nama_merchandise VARCHAR(100) NOT NULL,
+    harga_poin INT NOT NULL CHECK (harga_poin >= 0),
+    stok_merchandise INT NOT NULL CHECK (stok_merchandise >= 0),
+    FOREIGN KEY (id_admin) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT
+);
+
+-- Tabel ClaimMerchandise
+CREATE TABLE ClaimMerchandise (
+    id_claim_merchandise VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_merchandise VARCHAR(50) NOT NULL,
+    id_pembeli VARCHAR(50) NOT NULL,
+    id_customer_service VARCHAR(50) NOT NULL,
+    tanggal_claim DATETIME NOT NULL,
+    tanggal_ambil DATETIME,
+    status_claim_merchandise VARCHAR(20) NOT NULL,
+    FOREIGN KEY (id_merchandise) REFERENCES Merchandise(id_merchandise) ON DELETE RESTRICT,
+    FOREIGN KEY (id_pembeli) REFERENCES Pembeli(id_pembeli) ON DELETE RESTRICT,
+    FOREIGN KEY (id_customer_service) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT
+);
+
+-- Tabel DonasiBarang
+CREATE TABLE DonasiBarang (
+    id_donasi_barang VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_request_donasi VARCHAR(50) NOT NULL,
+    id_owner VARCHAR(50) NOT NULL,
+    id_barang VARCHAR(50) NOT NULL,
+    tanggal_donasi DATETIME NOT NULL,
+    FOREIGN KEY (id_request_donasi) REFERENCES RequestDonasi(id_request_donasi) ON DELETE RESTRICT,
+    FOREIGN KEY (id_owner) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT,
+    FOREIGN KEY (id_barang) REFERENCES Barang(id_barang) ON DELETE RESTRICT
+);
+
+-- Tabel Penitipan
+CREATE TABLE Penitipan (
+    id_penitipan VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_barang VARCHAR(50) NOT NULL,
+    tanggal_awal_penitipan DATETIME NOT NULL,
+    tanggal_akhir_penitipan DATETIME NOT NULL,
+    tanggal_batas_pengambilan DATETIME NOT NULL,
+    perpanjangan BIT NOT NULL DEFAULT 0,
+    status_penitipan VARCHAR(20) NOT NULL,
+    FOREIGN KEY (id_barang) REFERENCES Barang(id_barang) ON DELETE RESTRICT
+);
+
+-- Tabel BonusTopSeller
+CREATE TABLE BonusTopSeller (
+    id_bonus_top_seller VARCHAR(50) PRIMARY KEY NOT NULL,
+    id_penitip VARCHAR(50) NOT NULL,
+    nominal DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    tanggal_pembayaran DATETIME NOT NULL,
+    FOREIGN KEY (id_penitip) REFERENCES Penitip(id_penitip) ON DELETE RESTRICT
+);
