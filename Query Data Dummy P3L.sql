@@ -231,7 +231,8 @@ INSERT INTO Transaksi (id_transaksi, id_pengiriman, komisi_reusemart, komisi_hun
 ('TRX14', 'PGR14', 10500.00, 3500.00, 52500.00, 0.00),  -- R34
 ('TRX15', 'PGR15', 40000.00, 0.00, 160000.00, 0.00),    -- C35
 ('TRX16', 'PGR16', 180000.00, 0.00, 720000.00, 0.00),   -- L36
-('TRX17', 'PGR17', 22500.00, 7500.00, 112500.00, 0.00); -- J37
+('TRX17', 'PGR17', 22500.00, 7500.00, 112500.00, 0.00),
+('TRX18', 'PGR18', 12000.00, 0.00, 48000.00, 0.00); -- J37
 
 -- Table ReviewProduk
 INSERT INTO ReviewProduk (id_review, id_transaksi, rating, tanggal_review) VALUES
@@ -251,7 +252,8 @@ INSERT INTO ReviewProduk (id_review, id_transaksi, rating, tanggal_review) VALUE
 ('REV14', 'TRX14', 4, '2025-04-04 17:00:00'), -- After PGR14: 2025-04-04 16:30
 ('REV15', 'TRX15', 5, '2025-04-06 10:00:00'), -- After PGR15: 2025-04-06 09:00
 ('REV16', 'TRX16', 3, '2025-04-07 11:00:00'), -- After PGR16: 2025-04-07 09:00
-('REV17', 'TRX17', 4, '2025-04-08 10:00:00'); -- After PGR17: 2025-04-08 09:00
+('REV17', 'TRX17', 4, '2025-04-08 10:00:00'),
+('REV18', 'TRX18', 4, '2025-04-08 14:00:00'); -- After PGR17: 2025-04-08 09:00
 
 -- Table DiskusiProduk
 INSERT INTO DiskusiProduk (id_diskusi_produk, id_barang, id_customer_service, id_pembeli, pertanyaan, jawaban, tanggal_pertanyaan, tanggal_jawaban) VALUES
