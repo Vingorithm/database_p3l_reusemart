@@ -108,7 +108,7 @@ CREATE TABLE Pengiriman (
     id_pengiriman VARCHAR(255) PRIMARY KEY NOT NULL,
     id_pembelian VARCHAR(255) NOT NULL,
     id_pengkonfirmasi VARCHAR(255) NOT NULL,
-    tanggal_mulai DATETIME NOT NULL,
+    tanggal_mulai DATETIME,
     tanggal_berakhir DATETIME,
     status_pengiriman TEXT NOT NULL,
     jenis_pengiriman TEXT NOT NULL,
