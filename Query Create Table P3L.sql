@@ -2,7 +2,7 @@
 CREATE TABLE Akun (
     id_akun VARCHAR(255) PRIMARY KEY NOT NULL,
     profile_picture TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
     password TEXT NOT NULL,
     role TEXT NOT NULL
 );
@@ -52,7 +52,7 @@ CREATE TABLE Penitip (
     id_akun VARCHAR(255) NOT NULL UNIQUE,
     nama_penitip TEXT NOT NULL,
     foto_ktp TEXT NOT NULL,
-    nomor_ktp TEXT NOT NULL UNIQUE,
+    nomor_ktp VARCHAR(255) NOT NULL UNIQUE,
     keuntungan DECIMAL(15,2) NOT NULL DEFAULT 0.00,
     rating DECIMAL(2,1) NOT NULL DEFAULT 0.0,
     badge BIT NOT NULL DEFAULT 0,
