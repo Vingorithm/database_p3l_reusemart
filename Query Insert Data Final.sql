@@ -95,16 +95,16 @@ INSERT INTO Pegawai (id_pegawai, id_akun, nama_pegawai, tanggal_lahir) VALUES
 
 -- Insert data into Penitip
 INSERT INTO Penitip (id_penitip, id_akun, nama_penitip, foto_ktp, nomor_ktp, keuntungan, rating, badge, total_poin, tanggal_registrasi) VALUES
-('T1', 'A31', 'Ahmad Fauzi', 'ktp1', '1234567890123456', 364500.00, 5.0, 0, 25, '2024-01-01 10:00:00'),
-('T2', 'A32', 'Eko Prasetyo', 'ktp2', '0123456789012345', 162000.00, 4.0, 0, 40, '2024-01-02 10:00:00'),
-('T3', 'A33', 'Ahmad Hidayat', 'ktp3', '2345678901234567', 4050000.00, 5.0, 0, 4, '2024-01-03 10:00:00'),
-('T4', 'A34', 'Eko Santoso', 'ktp4', '3456789012345678', 124250.00, 4.0, 0, 8, '2024-01-04 10:00:00'),
-('T5', 'A35', 'Ahmad Zainuddin', 'ktp5', '4567890123456780', 566000.00, 5.0, 0, 15, '2024-01-05 10:00:00'),
-('T6', 'A36', 'Eko Wibowo', 'ktp6', '5678901234567890', 324000.00, 4.0, 0, 300, '2024-01-06 10:00:00'),
-('T7', 'A37', 'Ahmad Rifai', 'ktp7', '6789012345678901', 202500.00, 5.0, 0, 15, '2024-01-07 10:00:00'),
-('T8', 'A38', 'Eko Nugroho', 'ktp8', '7890123456789012', 109200.00, 4.0, 0, 6, '2024-01-08 10:00:00'),
-('T9', 'A39', 'Ahmad Syahid', 'ktp9', '8901234567890123', 486000.00, 5.0, 0, 7, '2024-01-01 10:00:00'),
-('T10', 'A40', 'Eko Jatmiko', 'ktp10', '9012345678901234', 121500.00, 4.0, 1, 90, '2024-01-02 10:00:00');
+('T1', 'A31', 'Ahmad Fauzi', 'ktp1.jpg', '1234567890123456', 364500.00, 5.0, 0, 25, '2024-01-01 10:00:00'),
+('T2', 'A32', 'Eko Prasetyo', 'ktp2.jpg', '0123456789012345', 162000.00, 4.0, 0, 40, '2024-01-02 10:00:00'),
+('T3', 'A33', 'Ahmad Hidayat', 'ktp3.jpg', '2345678901234567', 4050000.00, 5.0, 0, 4, '2024-01-03 10:00:00'),
+('T4', 'A34', 'Eko Santoso', 'ktp4.jpg', '3456789012345678', 124250.00, 4.0, 0, 8, '2024-01-04 10:00:00'),
+('T5', 'A35', 'Ahmad Zainuddin', 'ktp5.jpg', '4567890123456780', 566000.00, 5.0, 0, 15, '2024-01-05 10:00:00'),
+('T6', 'A36', 'Eko Wibowo', 'ktp6.jpg', '5678901234567890', 324000.00, 4.0, 0, 300, '2024-01-06 10:00:00'),
+('T7', 'A37', 'Ahmad Rifai', 'ktp7.jpg', '6789012345678901', 202500.00, 5.0, 0, 15, '2024-01-07 10:00:00'),
+('T8', 'A38', 'Eko Nugroho', 'ktp8.jpg', '7890123456789012', 109200.00, 4.0, 0, 6, '2024-01-08 10:00:00'),
+('T9', 'A39', 'Ahmad Syahid', 'ktp9.jpg', '8901234567890123', 486000.00, 5.0, 0, 7, '2024-01-01 10:00:00'),
+('T10', 'A40', 'Eko Jatmiko', 'ktp10.jpg', '9012345678901234', 121500.00, 4.0, 1, 90, '2024-01-02 10:00:00');
 
 -- Insert data into Barang
 -- Insert data into Barang
@@ -151,24 +151,44 @@ INSERT INTO Barang (id_barang, id_penitip, id_hunter, id_pegawai_gudang, nama, d
 ('C40', 'T10', NULL, 'P4', 'Cermin 2 arah Besar', 'Kaca memiliki kotoran di pinggir bawah', 'C40.jpg, C40.jpg', 200000.00, 0, NULL, 4.0, 'Lulus', 'Kosmetik & Perawatan Diri');
 
 -- Insert data into Pembelian
-INSERT INTO Pembelian (id_pembelian, id_barang, id_customer_service, id_pembeli, id_alamat, bukti_transfer, tanggal_pembelian, tanggal_pelunasan, total_harga, ongkir, potongan_poin, total_bayar, poin_diperoleh, status_pembelian) VALUES
-('PBLN1', 'H1', 'P1', 'PBL1', 'ALMT1', 'tf1.jpg', '2024-01-10 11:00:00', '2024-01-10 11:10:00', 450000.00, 100000.00, 0, 550000.00, 45, 'Pembayaran valid'),
-('PBLN2', 'J2', 'P2', 'PBL2', 'ALMT2', 'tf2.jpg', '2024-02-09 11:00:00', '2024-02-09 11:10:00', 200000.00, 100000.00, 0, 300000.00, 20, 'Pembayaran valid'),
-('PBLN3', 'M3', 'P1', 'PBL3', 'ALMT3', 'tf3.jpg', '2024-03-10 11:00:00', '2024-03-10 11:10:00', 5000000.00, 0.00, 0, 5000000.00, 600, 'Pembayaran valid'),
-('PBLN4', 'K4', 'P2', 'PBL4', 'ALMT4', 'tf4.jpg', '2024-04-05 11:00:00', '2024-04-05 11:10:00', 75000.00, 100000.00, 0, 175000.00, 7, 'Pembayaran valid'),
-('PBLN5', 'G5', 'P1', 'PBL5', 'ALMT5', 'tf5.jpg', '2024-05-10 11:00:00', '2024-05-10 11:10:00', 600000.00, 100000.00, 0, 700000.00, 72, 'Pembayaran valid'),
-('PBLN6', 'S6', 'P2', 'PBL6', 'ALMT6', 'tf6.jpg', '2024-06-10 11:00:00', '2024-06-10 11:10:00', 400000.00, 0.00, 0, 400000.00, 40, 'Pembayaran valid'),
-('PBLN7', 'H7', 'P1', 'PBL7', 'ALMT7', 'tf7.jpg', '2024-07-10 11:00:00', '2024-07-10 11:10:00', 250000.00, 0.00, 0, 250000.00, 25, 'Pembayaran valid'),
-('PBLN8', 'S8', 'P2', 'PBL8', 'ALMT8', 'tf8.jpg', '2024-08-04 11:00:00', '2024-08-04 11:10:00', 120000.00, 0.00, 0, 120000.00, 12, 'Pembayaran valid'),
-('PBLN9', 'M9', 'P1', 'PBL9', 'ALMT9', 'tf9.jpg', '2024-09-10 11:00:00', '2024-09-10 11:10:00', 600000.00, 0.00, 0, 600000.00, 72, 'Pembayaran valid'),
-('PBLN10', 'H10', 'P2', 'PBL10', 'ALMT10', 'tf10.jpg', '2024-10-10 11:00:00', '2024-10-10 11:10:00', 150000.00, 0.00, 0, 150000.00, 15, 'Pembayaran valid'),
-('PBLN11', 'B11', 'P1', 'PBL1', 'ALMT1', 'tf11.jpg', '2024-01-10 11:00:00', '2024-01-10 11:10:00', 300000.00, 100000.00, 45, 395500.00, 30, 'Pembayaran tidak valid'),
-('PBLN12', 'K12', 'P2', 'PBL2', 'ALMT2', '', '2024-02-10 11:00:00', NULL, 120000.00, 100000.00, 20, 218000.00, 12, 'Tidak mengirimkan bukti pembayaran'),
-('PBLN13', 'R13', 'P1', 'PBL3', 'ALMT3', '', '2024-03-12 11:00:00', NULL, 350000.00, 100000.00, 600, 390000.00, 35, 'Tidak mengirimkan bukti pembayaran'),
-('PBLN14', 'L36', 'P2', 'PBL4', 'ALMT4', '', '2025-03-02 11:00:00', NULL, 5000000.00, 0.00, 7, 4999300.00, 600, 'Menunggu pembayaran'),
-('PBLN15', 'C40', 'P1', 'PBL5', 'ALMT5', 'tf15.jpg', '2025-03-02 11:00:00', '2025-03-02 11:10:00', 200000.00, 100000.00, 72, 292800.00, 20, 'Menunggu verifikasi pembayaran'),
-('PBLN16', 'R34', 'P2', 'PBL1', 'ALMT1', 'tf16.jpg', '2025-03-01 11:00:00', '2025-03-01 11:10:00', 70000.00, 100000.00, 0, 170000.00, 7, 'Pembayaran valid'),
-('PBLN17', 'C35', 'P1', 'PBL2', 'ALMT2', 'tf17.jpg', '2025-03-01 11:00:00', '2025-03-01 11:10:00', 100000.00, 0.00, 0, 100000.00, 10, 'Pembayaran valid');
+INSERT INTO Pembelian (id_pembelian, id_customer_service, id_pembeli, id_alamat, bukti_transfer, tanggal_pembelian, tanggal_pelunasan, total_harga, ongkir, potongan_poin, total_bayar, poin_diperoleh, status_pembelian) VALUES
+('PBLN1', 'P1', 'PBL1', 'ALMT1', 'tf1.jpg', '2024-01-10 11:00:00', '2024-01-10 11:10:00', 450000.00, 100000.00, 0, 550000.00, 45, 'Pembayaran valid'),
+('PBLN2', 'P2', 'PBL2', 'ALMT2', 'tf2.jpg', '2024-02-09 11:00:00', '2024-02-09 11:10:00', 200000.00, 100000.00, 0, 300000.00, 20, 'Pembayaran valid'),
+('PBLN3', 'P1', 'PBL3', 'ALMT3', 'tf3.jpg', '2024-03-10 11:00:00', '2024-03-10 11:10:00', 5000000.00, 0.00, 0, 5000000.00, 600, 'Pembayaran valid'),
+('PBLN4', 'P2', 'PBL4', 'ALMT4', 'tf4.jpg', '2024-04-05 11:00:00', '2024-04-05 11:10:00', 75000.00, 100000.00, 0, 175000.00, 7, 'Pembayaran valid'),
+('PBLN5', 'P1', 'PBL5', 'ALMT5', 'tf5.jpg', '2024-05-10 11:00:00', '2024-05-10 11:10:00', 600000.00, 100000.00, 0, 700000.00, 72, 'Pembayaran valid'),
+('PBLN6', 'P2', 'PBL6', 'ALMT6', 'tf6.jpg', '2024-06-10 11:00:00', '2024-06-10 11:10:00', 400000.00, 0.00, 0, 400000.00, 40, 'Pembayaran valid'),
+('PBLN7', 'P1', 'PBL7', 'ALMT7', 'tf7.jpg', '2024-07-10 11:00:00', '2024-07-10 11:10:00', 250000.00, 0.00, 0, 250000.00, 25, 'Pembayaran valid'),
+('PBLN8', 'P2', 'PBL8', 'ALMT8', 'tf8.jpg', '2024-08-04 11:00:00', '2024-08-04 11:10:00', 120000.00, 0.00, 0, 120000.00, 12, 'Pembayaran valid'),
+('PBLN9', 'P1', 'PBL9', 'ALMT9', 'tf9.jpg', '2024-09-10 11:00:00', '2024-09-10 11:10:00', 600000.00, 0.00, 0, 600000.00, 72, 'Pembayaran valid'),
+('PBLN10', 'P2', 'PBL10', 'ALMT10', 'tf10.jpg', '2024-10-10 11:00:00', '2024-10-10 11:10:00', 150000.00, 0.00, 0, 150000.00, 15, 'Pembayaran valid'),
+('PBLN11', 'P1', 'PBL1', 'ALMT1', 'tf11.jpg', '2024-01-10 11:00:00', '2024-01-10 11:10:00', 300000.00, 100000.00, 45, 395500.00, 30, 'Pembayaran tidak valid'),
+('PBLN12', 'P2', 'PBL2', 'ALMT2', '', '2024-02-10 11:00:00', NULL, 120000.00, 100000.00, 20, 218000.00, 12, 'Tidak mengirimkan bukti pembayaran'),
+('PBLN13', 'P1', 'PBL3', 'ALMT3', '', '2024-03-12 11:00:00', NULL, 350000.00, 100000.00, 600, 390000.00, 35, 'Tidak mengirimkan bukti pembayaran'),
+('PBLN14', 'P2', 'PBL4', 'ALMT4', '', '2025-03-02 11:00:00', NULL, 5000000.00, 0.00, 7, 4999300.00, 600, 'Menunggu pembayaran'),
+('PBLN15', 'P1', 'PBL5', 'ALMT5', 'tf15.jpg', '2025-03-02 11:00:00', '2025-03-02 11:10:00', 200000.00, 100000.00, 72, 292800.00, 20, 'Menunggu verifikasi pembayaran'),
+('PBLN16', 'P2', 'PBL1', 'ALMT1', 'tf16.jpg', '2025-03-01 11:00:00', '2025-03-01 11:10:00', 70000.00, 100000.00, 0, 170000.00, 7, 'Pembayaran valid'),
+('PBLN17', 'P1', 'PBL2', 'ALMT2', 'tf17.jpg', '2025-03-01 11:00:00', '2025-03-01 11:10:00', 100000.00, 0.00, 0, 100000.00, 10, 'Pembayaran valid');
+
+-- Insert data into SubPembelian
+INSERT INTO SubPembelian (id_sub_pembelian, id_pembelian, id_barang) VALUES
+('SPBLN1', 'PBLN1', 'H1'),
+('SPBLN2', 'PBLN2', 'J2'),
+('SPBLN3', 'PBLN3', 'M3'),
+('SPBLN4', 'PBLN4', 'K4'),
+('SPBLN5', 'PBLN5', 'G5'),
+('SPBLN6', 'PBLN6', 'S6'),
+('SPBLN7', 'PBLN7', 'H7'),
+('SPBLN8', 'PBLN8', 'S8'),
+('SPBLN9', 'PBLN9', 'M9'),
+('SPBLN10', 'PBLN10', 'H10'),
+('SPBLN11', 'PBLN11', 'B11'),
+('SPBLN12', 'PBLN12', 'K12'),
+('SPBLN13', 'PBLN13', 'R13'),
+('SPBLN14', 'PBLN14', 'L36'),
+('SPBLN15', 'PBLN15', 'C40'),
+('SPBLN16', 'PBLN16', 'R34'),
+('SPBLN17', 'PBLN17', 'C35');
 
 -- Insert data into Pengiriman
 INSERT INTO Pengiriman (id_pengiriman, id_pembelian, id_pengkonfirmasi, tanggal_mulai, tanggal_berakhir, status_pengiriman, jenis_pengiriman) VALUES
@@ -191,19 +211,19 @@ INSERT INTO Pengiriman (id_pengiriman, id_pembelian, id_pengkonfirmasi, tanggal_
 ('PGR17', 'PBLN17', 'P4', '2025-03-01 13:00:00', '2025-03-03 13:00:00', 'Menunggu diambil', 'Ambil di gudang');
 
 -- Insert data into Transaksi
-INSERT INTO Transaksi (id_transaksi, id_pengiriman, komisi_reusemart, komisi_hunter, pendapatan, bonus_cepat) VALUES
-('TRX1', 'PGR1', 67500.00, 22500.00, 360000.00, 0.00),
-('TRX2', 'PGR2', 30000.00, 10000.00, 160000.00, 0.00),
-('TRX3', 'PGR3', 1000000.00, 0.00, 4000000.00, 0.00),
-('TRX4', 'PGR4', 7500.00, 0.00, 67500.00, 1.00),
-('TRX5', 'PGR5', 90000.00, 30000.00, 480000.00, 0.00),
-('TRX6', 'PGR6', 60000.00, 20000.00, 320000.00, 0.00),
-('TRX7', 'PGR7', 37500.00, 12500.00, 200000.00, 0.00),
-('TRX8', 'PGR8', 6000.00, 6000.00, 108000.00, 1.00),
-('TRX9', 'PGR9', 120000.00, 0.00, 480000.00, 0.00),
-('TRX10', 'PGR10', 22500.00, 7500.00, 120000.00, 0.00),
-('TRX11', 'PGR16', 10500.00, 3500.00, 56000.00, 0.00),
-('TRX12', 'PGR17', 20000.00, 0.00, 80000.00, 0.00);
+INSERT INTO Transaksi (id_transaksi, id_sub_pembelian, komisi_reusemart, komisi_hunter, pendapatan, bonus_cepat) VALUES
+('TRX1', 'SPBLN1', 67500.00, 22500.00, 360000.00, 0.00),
+('TRX2', 'SPBLN2', 30000.00, 10000.00, 160000.00, 0.00),
+('TRX3', 'SPBLN3', 1000000.00, 0.00, 4000000.00, 0.00),
+('TRX4', 'SPBLN4', 7500.00, 0.00, 67500.00, 1.00),
+('TRX5', 'SPBLN5', 90000.00, 30000.00, 480000.00, 0.00),
+('TRX6', 'SPBLN6', 60000.00, 20000.00, 320000.00, 0.00),
+('TRX7', 'SPBLN7', 37500.00, 12500.00, 200000.00, 0.00),
+('TRX8', 'SPBLN8', 6000.00, 6000.00, 108000.00, 1.00),
+('TRX9', 'SPBLN9', 120000.00, 0.00, 480000.00, 0.00),
+('TRX10', 'SPBLN10', 22500.00, 7500.00, 120000.00, 0.00),
+('TRX11', 'SPBLN11', 10500.00, 3500.00, 56000.00, 0.00),
+('TRX12', 'SPBLN12', 20000.00, 0.00, 80000.00, 0.00);
 
 -- Insert data into ReviewProduk
 INSERT INTO ReviewProduk (id_review, id_transaksi, rating, tanggal_review) VALUES
