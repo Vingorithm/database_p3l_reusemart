@@ -84,7 +84,6 @@ CREATE TABLE Barang (
 -- Tabel Pembelian
 CREATE TABLE Pembelian (
     id_pembelian VARCHAR(255) PRIMARY KEY NOT NULL,
-    id_barang VARCHAR(255) NOT NULL,
     id_customer_service VARCHAR(255) NOT NULL,
     id_pembeli VARCHAR(255) NOT NULL,
     id_alamat VARCHAR(255) NOT NULL,
@@ -97,10 +96,17 @@ CREATE TABLE Pembelian (
     total_bayar DECIMAL(15,2) NOT NULL,
     poin_diperoleh INT NOT NULL DEFAULT 0,
     status_pembelian TEXT NOT NULL,
-    FOREIGN KEY (id_barang) REFERENCES Barang(id_barang) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_customer_service) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT,
     FOREIGN KEY (id_pembeli) REFERENCES Pembeli(id_pembeli) ON DELETE RESTRICT,
     FOREIGN KEY (id_alamat) REFERENCES AlamatPembeli(id_alamat) ON DELETE RESTRICT
+);
+
+CREATE TABLE SubPembelian (
+    id_sub_pembelian VARCHAR(255) PRIMARY KEY NOT NULL,
+    id_pembelian VARCHAR(255) NOT NULL,
+    id_barang VARCHAR(255) NOT NULL,
+    FOREIGN KEY (id_pembelian) REFERENCES Pembelian(id_pembelian) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (id_barang) REFERENCES Barang(id_barang) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- Tabel Pengiriman
@@ -119,12 +125,12 @@ CREATE TABLE Pengiriman (
 -- Tabel Transaksi
 CREATE TABLE Transaksi (
     id_transaksi VARCHAR(255) PRIMARY KEY NOT NULL,
-    id_pengiriman VARCHAR(255) NOT NULL,
+    id_sub_pembelian VARCHAR(255) NOT NULL,
     komisi_reusemart DECIMAL(15,2) NOT NULL DEFAULT 0.00,
     komisi_hunter DECIMAL(15,2) NOT NULL DEFAULT 0.00,
     pendapatan DECIMAL(15,2) NOT NULL DEFAULT 0.00,
     bonus_cepat DECIMAL(15,2) NOT NULL DEFAULT 0.00,
-    FOREIGN KEY (id_pengiriman) REFERENCES Pengiriman(id_pengiriman) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (id_sub_pembelian) REFERENCES SubPembelian(id_sub_pembelian) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- Tabel ReviewProduk
