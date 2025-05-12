@@ -222,8 +222,8 @@ INSERT INTO Transaksi (id_transaksi, id_sub_pembelian, komisi_reusemart, komisi_
 ('TRX8', 'SPBLN8', 6000.00, 6000.00, 108000.00, 1.00),
 ('TRX9', 'SPBLN9', 120000.00, 0.00, 480000.00, 0.00),
 ('TRX10', 'SPBLN10', 22500.00, 7500.00, 120000.00, 0.00),
-('TRX11', 'SPBLN11', 10500.00, 3500.00, 56000.00, 0.00),
-('TRX12', 'SPBLN12', 20000.00, 0.00, 80000.00, 0.00);
+('TRX11', 'SPBLN16', 10500.00, 3500.00, 56000.00, 0.00),
+('TRX12', 'SPBLN17', 20000.00, 0.00, 80000.00, 0.00);
 
 -- Insert data into ReviewProduk
 INSERT INTO ReviewProduk (id_review, id_transaksi, rating, tanggal_review) VALUES
