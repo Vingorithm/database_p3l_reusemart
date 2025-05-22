@@ -5,6 +5,7 @@ CREATE TABLE Akun (
     email VARCHAR(255) NOT NULL UNIQUE,
     password TEXT NOT NULL,
     role TEXT NOT NULL,
+    fcm_token TEXT,
     terhapus BIT NOT NULL DEFAULT 0
 );
 
