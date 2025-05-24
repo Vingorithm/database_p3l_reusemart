@@ -87,7 +87,7 @@ CREATE TABLE Barang (
 -- Tabel Pembelian
 CREATE TABLE Pembelian (
     id_pembelian VARCHAR(255) PRIMARY KEY NOT NULL,
-    id_customer_service VARCHAR(255) NOT NULL,
+    id_customer_service VARCHAR(255),
     id_pembeli VARCHAR(255) NOT NULL,
     id_alamat VARCHAR(255) NOT NULL,
     bukti_transfer TEXT,
@@ -99,7 +99,7 @@ CREATE TABLE Pembelian (
     total_bayar DECIMAL(15,2) NOT NULL,
     poin_diperoleh INT NOT NULL DEFAULT 0,
     status_pembelian TEXT NOT NULL,
-    FOREIGN KEY (id_customer_service) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT,
+    FOREIGN KEY (id_customer_service) REFERENCES Pegawai(id_pegawai) ON DELETE SET NULL,
     FOREIGN KEY (id_pembeli) REFERENCES Pembeli(id_pembeli) ON DELETE RESTRICT,
     FOREIGN KEY (id_alamat) REFERENCES AlamatPembeli(id_alamat) ON DELETE RESTRICT
 );
@@ -116,13 +116,13 @@ CREATE TABLE SubPembelian (
 CREATE TABLE Pengiriman (
     id_pengiriman VARCHAR(255) PRIMARY KEY NOT NULL,
     id_pembelian VARCHAR(255) NOT NULL,
-    id_pengkonfirmasi VARCHAR(255) NOT NULL,
+    id_pengkonfirmasi VARCHAR(255),
     tanggal_mulai DATETIME,
     tanggal_berakhir DATETIME,
     status_pengiriman TEXT NOT NULL,
     jenis_pengiriman TEXT NOT NULL,
     FOREIGN KEY (id_pembelian) REFERENCES Pembelian(id_pembelian) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (id_pengkonfirmasi) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT
+    FOREIGN KEY (id_pengkonfirmasi) REFERENCES Pegawai(id_pegawai) ON DELETE SET NULL
 );
 
 -- Tabel Transaksi
