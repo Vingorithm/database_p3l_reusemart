@@ -89,7 +89,7 @@ CREATE TABLE Pembelian (
     id_pembelian VARCHAR(255) PRIMARY KEY NOT NULL,
     id_customer_service VARCHAR(255),
     id_pembeli VARCHAR(255) NOT NULL,
-    id_alamat VARCHAR(255) NOT NULL,
+    id_alamat VARCHAR(255),
     bukti_transfer TEXT,
     tanggal_pembelian DATETIME NOT NULL,
     tanggal_pelunasan DATETIME,
