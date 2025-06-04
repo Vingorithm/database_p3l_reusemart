@@ -215,6 +215,7 @@ CREATE TABLE DonasiBarang (
     id_owner VARCHAR(255) NOT NULL,
     id_barang VARCHAR(255) NOT NULL,
     tanggal_donasi DATETIME NOT NULL,
+    nama_penerima VARCHAR(255),
     FOREIGN KEY (id_request_donasi) REFERENCES RequestDonasi(id_request_donasi) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_owner) REFERENCES Pegawai(id_pegawai) ON DELETE RESTRICT,
     FOREIGN KEY (id_barang) REFERENCES Barang(id_barang) ON DELETE RESTRICT
