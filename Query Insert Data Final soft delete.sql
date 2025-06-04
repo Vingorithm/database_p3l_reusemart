@@ -165,7 +165,7 @@ INSERT INTO Pembelian (id_pembelian, id_customer_service, id_pembeli, id_alamat,
 ('PBLN11', 'P1', 'PBL1', 'ALMT1', 'tf11.jpg', '2024-01-10 11:00:00', '2024-01-10 11:10:00', 300000.00, 100000.00, 45, 395500.00, 30, 'Pembayaran tidak valid'),
 ('PBLN12', 'P2', 'PBL2', 'ALMT2', '', '2024-02-10 11:00:00', NULL, 120000.00, 100000.00, 20, 218000.00, 12, 'Tidak mengirimkan bukti pembayaran'),
 ('PBLN13', 'P1', 'PBL3', 'ALMT3', '', '2024-03-12 11:00:00', NULL, 350000.00, 100000.00, 600, 390000.00, 35, 'Tidak mengirimkan bukti pembayaran'),
-('PBLN14', 'P2', 'PBL4', 'ALMT4', '', '2025-03-02 11:00:00', NULL, 5000000.00, 0.00, 7, 4999300.00, 600, 'Menunggu pembayaran'),
+('PBLN14', 'P2', 'PBL4', 'ALMT4', '.', '2025-03-02 11:00:00', NULL, 5000000.00, 0.00, 7, 4999300.00, 600, 'Menunggu pembayaran'),
 ('PBLN15', 'P1', 'PBL5', 'ALMT5', 'tf15.jpg', '2025-03-02 11:00:00', '2025-03-02 11:10:00', 200000.00, 100000.00, 72, 292800.00, 20, 'Menunggu verifikasi pembayaran'),
 ('PBLN16', 'P2', 'PBL1', 'ALMT1', 'tf16.jpg', '2025-03-01 11:00:00', '2025-03-01 11:10:00', 70000.00, 100000.00, 0, 170000.00, 7, 'Pembayaran valid'),
 ('PBLN17', 'P1', 'PBL2', 'ALMT2', 'tf17.jpg', '2025-03-01 11:00:00', '2025-03-01 11:10:00', 100000.00, 0.00, 0, 100000.00, 10, 'Pembayaran valid');

@@ -23,3 +23,5 @@ INSERT INTO `keranjang` (`id_keranjang`, `id_barang`, `id_pembeli`) VALUES
 ('KRJ12', 'J32', 'PBL11'),
 ('KRJ13', 'S33', 'PBL11'),
 ('KRJ14', 'H10', 'PBL11');
+
+UPDATE akun SET password = '$2b$10$WnJHnXL4UsDkIMNEScwP.OFCVv.bsD0c.EE7rPqmxJzjLX78AW.F6';
