@@ -309,17 +309,17 @@ INSERT INTO ClaimMerchandise (id_claim_merchandise, id_merchandise, id_pembeli, 
 ('CLM10', 'MRC8', 'PBL3', 'P2', '2024-12-09 12:00:00', '2024-12-10 12:00:00', 'Selesai');
 
 -- Insert data into DonasiBarang
-INSERT INTO DonasiBarang (id_donasi_barang, id_request_donasi, id_owner, id_barang, tanggal_donasi) VALUES
-('DNB1', 'RDN1', 'P10', 'T16', '2024-03-17 12:00:00'),
-('DNB2', 'RDN2', 'P10', 'M17', '2024-03-17 12:00:00'),
-('DNB3', 'RDN3', 'P10', 'B18', '2024-03-17 12:00:00'),
-('DNB4', 'RDN4', 'P10', 'K19', '2024-03-17 12:00:00'),
-('DNB5', 'RDN5', 'P10', 'J20', '2024-03-17 12:00:00'),
-('DNB6', 'RDN6', 'P10', 'L21', '2024-03-17 12:00:00'),
-('DNB7', 'RDN7', 'P10', 'J22', '2024-03-17 12:00:00'),
-('DNB8', 'RDN8', 'P10', 'S23', '2024-03-17 12:00:00'),
-('DNB9', 'RDN9', 'P10', 'R24', '2024-03-17 12:00:00'),
-('DNB10', 'RDN10', 'P10', 'T25', '2024-03-17 12:00:00');
+INSERT INTO DonasiBarang (id_donasi_barang, id_request_donasi, id_owner, id_barang, tanggal_donasi, nama_penerima) VALUES
+('DNB1', 'RDN1', 'P10', 'T16', '2024-03-17 12:00:00', 'Andi Wijaya'),
+('DNB2', 'RDN2', 'P10', 'M17', '2024-03-17 12:00:00', 'Budi Hartono'),
+('DNB3', 'RDN3', 'P10', 'B18', '2024-03-17 12:00:00', 'Bagas Santoso'),
+('DNB4', 'RDN4', 'P10', 'K19', '2024-03-17 12:00:00', 'Putri Ananda'),
+('DNB5', 'RDN5', 'P10', 'J20', '2024-03-17 12:00:00', 'Jessica Wijaya'),
+('DNB6', 'RDN6', 'P10', 'L21', '2024-03-17 12:00:00', 'Budianto Wijaya'),
+('DNB7', 'RDN7', 'P10', 'J22', '2024-03-17 12:00:00', 'Ananda Putri'),
+('DNB8', 'RDN8', 'P10', 'S23', '2024-03-17 12:00:00', 'Stevano Pranowo'),
+('DNB9', 'RDN9', 'P10', 'R24', '2024-03-17 12:00:00', 'Supri Suyoto'),
+('DNB10', 'RDN10', 'P10', 'T25', '2024-03-17 12:00:00', 'Andre Wijaya');
 
 -- Insert data into Penitipan
 INSERT INTO Penitipan (id_penitipan, id_barang, tanggal_awal_penitipan, tanggal_akhir_penitipan, tanggal_batas_pengambilan, perpanjangan, status_penitipan) VALUES
